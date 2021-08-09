@@ -1,5 +1,4 @@
 import pyttsx3
-import pythoncom
 import speech_recognition as sr
 import wikipedia
 import webbrowser
@@ -26,8 +25,6 @@ def Wishme():
 speak("Hi I am Caesar")
 
 def takeCommand():
-    #It takes microphone input from the user and returns string output
-
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -46,6 +43,7 @@ def takeCommand():
     return query
 if __name__ == "__main__":
     Wishme()
+    takeCommand()
     while True:
         query = takeCommand().lower()
         if 'wikipedia' in query:
@@ -66,9 +64,6 @@ if __name__ == "__main__":
         elif 'check my mail' in query:
             webbrowser.open("mail.google.com/mail/u/0/#inbox")
 
-        elif 'tushar bhai' in query:
-            webbrowser.open("https://www.youtube.com/watch?v=6FwGijFHUxY&feature=youtu.be")
-
         elif 'caesar' in query:
             speak("Yes Sir")
         elif 'can you help me' in query:
@@ -82,6 +77,4 @@ if __name__ == "__main__":
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
-        elif 'lucky' in query:
-            speak("She is a beautiful girl. and she loves u")
         
